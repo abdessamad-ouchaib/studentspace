@@ -1,0 +1,119 @@
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  STYLES GLOBAUX — StudentSpace                               ║
+   ║  TailwindCSS + styles personnalisés                          ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* TailwindCSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables globales */
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --sidebar-width: 250px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+/* ── Composants réutilisables ─────────────────────────────────── */
+
+/* Bouton primaire */
+.btn-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg font-medium
+         hover:bg-blue-700 transition-colors duration-200 cursor-pointer;
+}
+
+/* Bouton secondaire */
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium
+         hover:bg-gray-200 transition-colors duration-200 cursor-pointer;
+}
+
+/* Bouton danger */
+.btn-danger {
+  @apply bg-red-100 text-red-700 px-3 py-1 rounded font-medium text-sm
+         hover:bg-red-200 transition-colors duration-200 cursor-pointer;
+}
+
+/* Carte */
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+}
+
+/* Input */
+.form-input {
+  @apply w-full border border-gray-300 rounded-lg px-3 py-2 text-sm
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+/* Label */
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+.badge-blue   { @apply badge bg-blue-100 text-blue-800; }
+.badge-green  { @apply badge bg-green-100 text-green-800; }
+.badge-red    { @apply badge bg-red-100 text-red-800; }
+.badge-gray   { @apply badge bg-gray-100 text-gray-800; }
+
+/* Table */
+.table-container {
+  @apply overflow-x-auto rounded-xl border border-gray-100;
+}
+.data-table {
+  @apply w-full text-sm text-left;
+}
+.data-table thead {
+  @apply bg-gray-50 text-gray-500 text-xs uppercase tracking-wider;
+}
+.data-table th {
+  @apply px-4 py-3 font-medium;
+}
+.data-table td {
+  @apply px-4 py-3 border-t border-gray-50;
+}
+.data-table tr:hover td {
+  @apply bg-blue-50;
+}
+
+/* Sidebar */
+.sidebar {
+  @apply fixed top-0 left-0 h-full bg-white border-r border-gray-100 shadow-sm;
+  width: var(--sidebar-width);
+  z-index: 50;
+}
+.sidebar-link {
+  @apply flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-600
+         rounded-lg mx-2 hover:bg-blue-50 hover:text-blue-700 transition-all cursor-pointer;
+}
+.sidebar-link.active {
+  @apply bg-blue-50 text-blue-700;
+}
+
+/* Main content (décalé de la sidebar) */
+.main-content {
+  margin-left: var(--sidebar-width);
+  @apply min-h-screen p-6;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply inline-block w-5 h-5 border-2 border-blue-600 border-t-transparent
+         rounded-full animate-spin;
+}
