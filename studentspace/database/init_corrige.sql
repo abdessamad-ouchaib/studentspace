@@ -7,13 +7,13 @@
 -- ── COMMANDE  : psql -U postgres -f init_corrige.sql
 
 -- Supprimer la base si elle existe déjà (pour repartir propre)
-DROP DATABASE IF EXISTS studentspace;
+
 
 -- Créer la base (nom identique à application.properties)
-CREATE DATABASE studentspace;
+
 
 -- Se connecter à la base
-\c studentspace;
+
 
 -- ── TABLE UTILISATEUR ──────────────────────────────────────────
 CREATE TABLE utilisateur (
