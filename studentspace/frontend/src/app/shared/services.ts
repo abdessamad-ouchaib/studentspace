@@ -17,9 +17,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable }    from 'rxjs';
 import { tap }           from 'rxjs/operators';
 import * as M            from './models';
-
 const API = 'https://studentspace-7uge.onrender.com/api';
-
 // ── Helper : headers avec JWT ─────────────────────────────────────────────────
 function authHeaders(): HttpHeaders {
   const token = localStorage.getItem('token');
