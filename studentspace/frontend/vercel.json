@@ -1,3 +1,6 @@
 {
-  "outputDirectory": "dist/studentspace"
+  "outputDirectory": "dist/studentspace",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
