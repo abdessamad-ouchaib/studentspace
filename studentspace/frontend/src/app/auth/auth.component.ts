@@ -142,8 +142,8 @@ import { AuthService }                   from '../shared/services';
     <div class="mt-6 p-3 bg-blue-50 rounded-lg text-xs text-blue-700">
       <p class="font-semibold mb-1">🧪 Comptes de test :</p>
       <p>Étudiant APOGEE : <strong>2005050</strong></p>
-      <p>Enseignant email : <strong>test@mail.com</strong> / mdp : <strong>admin123</strong></p>
-      <p>Admin email : <strong>admin@fsr.ac.ma</strong> / mdp : <strong>admin123</strong></p>
+      <p>Enseignant email : <strong>test&#64;mail.com</strong> / mdp : <strong>admin123</strong></p>
+      <p>Admin email : <strong>admin&#64;fsr.ac.ma</strong> / mdp : <strong>admin123</strong></p>
     </div>
   </div>
 </div>
