@@ -1,11 +1,14 @@
 package com.studentspace.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.*;
 
 @Entity
 @Table(name = "enseignant")
 @PrimaryKeyJoinColumn(name = "utilisateur_id")
+@Getter @Setter
+@NoArgsConstructor
 public class Enseignant extends Utilisateur {
 
     @Column(nullable = false)
@@ -22,21 +25,13 @@ public class Enseignant extends Utilisateur {
     @OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Module> modulesEnseignant = new HashSet<>();
 
-    public Enseignant() {}
-
-    // Getters & Setters
-    public String getNom() { return nom; }
-    public void setNom(String v) { nom = v; }
-    public String getPrenom() { return prenom; }
-    public void setPrenom(String v) { prenom = v; }
-    public String getSpecialite() { return specialite; }
-    public void setSpecialite(String v) { specialite = v; }
-    public String getTelephone() { return telephone; }
-    public void setTelephone(String v) { telephone = v; }
-    public String getDepartement() { return departement; }
-    public void setDepartement(String v) { departement = v; }
-    public String getBureau() { return bureau; }
-    public void setBureau(String v) { bureau = v; }
-    public Set<Module> getModulesEnseignant() { return modulesEnseignant; }
-    public void setModulesEnseignant(Set<Module> v) { modulesEnseignant = v; }
+    public Enseignant(String email, String motDePasseHash, String nom, String prenom, String specialite, String telephone) {
+        setEmail(email);
+        setMotDePasseHash(motDePasseHash);
+        setRole(Role.ENSEIGNANT);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.specialite = specialite;
+        this.telephone = telephone;
+    }
 }

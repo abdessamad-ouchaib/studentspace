@@ -1,11 +1,14 @@
 package com.studentspace.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.*;
 
 @Entity
 @Table(name = "etudiant")
 @PrimaryKeyJoinColumn(name = "utilisateur_id")
+@Getter @Setter
+@NoArgsConstructor
 public class Etudiant extends Utilisateur {
 
     @Column(name = "numero_apogee", nullable = false, unique = true)
@@ -24,17 +27,13 @@ public class Etudiant extends Utilisateur {
     @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<InscriptionEtudiantModule> inscriptions = new HashSet<>();
 
-    public Etudiant() {}
-
-    // Getters & Setters
-    public String getNumeroApogee() { return numeroApogee; }
-    public void setNumeroApogee(String v) { numeroApogee = v; }
-    public String getNom() { return nom; }
-    public void setNom(String v) { nom = v; }
-    public String getPrenom() { return prenom; }
-    public void setPrenom(String v) { prenom = v; }
-    public Filiere getFiliere() { return filiere; }
-    public void setFiliere(Filiere v) { filiere = v; }
-    public Set<InscriptionEtudiantModule> getInscriptions() { return inscriptions; }
-    public void setInscriptions(Set<InscriptionEtudiantModule> v) { inscriptions = v; }
+    public Etudiant(String email, String motDePasseHash, String numeroApogee, String nom, String prenom, Filiere filiere) {
+        setEmail(email);
+        setMotDePasseHash(motDePasseHash);
+        setRole(Role.ETUDIANT);
+        this.numeroApogee = numeroApogee;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.filiere = filiere;
+    }
 }
