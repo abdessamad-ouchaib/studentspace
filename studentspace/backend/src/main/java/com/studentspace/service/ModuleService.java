@@ -32,15 +32,13 @@ public class ModuleService {
     }
 
     public ModuleResponse creer(ModuleRequest req) {
-        Module m = Module.builder()
-                .nom(req.getNom())
-                .description(req.getDescription())
-                .filiere(req.getFiliereId() != null ? filiereRepo.findById(req.getFiliereId()).orElse(null) : null)
-                .enseignant(req.getEnseignantId() != null ? enseignantRepo.findById(req.getEnseignantId()).orElse(null) : null)
-                .build();
-        return toResponse(moduleRepo.save(m));
-    }
-
+    Module m = new Module();
+    m.setNom(req.getNom());
+    m.setDescription(req.getDescription());
+    if (req.getFiliereId() != null) filiereRepo.findById(req.getFiliereId()).ifPresent(m::setFiliere);
+    if (req.getEnseignantId() != null) enseignantRepo.findById(req.getEnseignantId()).ifPresent(m::setEnseignant);
+    return toResponse(moduleRepo.save(m));
+}
     public ModuleResponse modifier(Long id, ModuleRequest req) {
         Module m = moduleRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Module non trouvé"));
