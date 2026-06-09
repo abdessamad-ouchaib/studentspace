@@ -31,7 +31,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/bi")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:4200", "https://app.powerbi.com"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://studentspace01.vercel.app", "https://app.powerbi.com"})
 public class BiController {
 
     private final BiService biService;
