@@ -89,4 +89,8 @@ public class AuthController {
                 .email(u.getEmail())
                 .build());
     }
+    @GetMapping("/hash")
+public ResponseEntity<String> getHash() {
+    return ResponseEntity.ok(passwordEncoder.encode("admin123"));
+}
 }
