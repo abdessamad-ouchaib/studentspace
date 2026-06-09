@@ -14,7 +14,7 @@
 
   <groupId>com.studentspace</groupId>
   <artifactId>studentspace-backend</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>StudentSpace Backend</name>
   <description>Plateforme de gestion académique — Spring Boot + BI</description>
 
