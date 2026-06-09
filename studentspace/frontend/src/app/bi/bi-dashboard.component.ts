@@ -463,14 +463,14 @@ export class BiDashboardComponent implements OnInit {
   distributionAnnee:     any[] = [];
   maxEtudiants = 1;
 
-  readonly BASE = 'http://localhost:8080/api/bi';
+  readonly BASE = 'https://studentspace-api.onrender.com/api/bi';
 
-  powerBiUrls = [
-    { label: 'KPIs Globaux',       url: 'http://localhost:8080/api/bi/kpis' },
-    { label: 'Table Étudiants',    url: 'http://localhost:8080/api/bi/export/etudiants' },
-    { label: 'Table Modules',      url: 'http://localhost:8080/api/bi/export/modules' },
-    { label: 'Table Inscriptions', url: 'http://localhost:8080/api/bi/export/inscriptions' },
-    { label: 'Perf. Enseignants',  url: 'http://localhost:8080/api/bi/performance-enseignants' },
+powerBiUrls = [
+    { label: 'KPIs Globaux',       url: 'https://studentspace-api.onrender.com/api/bi/kpis' },
+    { label: 'Table Étudiants',    url: 'https://studentspace-api.onrender.com/api/bi/export/etudiants' },
+    { label: 'Table Modules',      url: 'https://studentspace-api.onrender.com/api/bi/export/modules' },
+    { label: 'Table Inscriptions', url: 'https://studentspace-api.onrender.com/api/bi/export/inscriptions' },
+    { label: 'Perf. Enseignants',  url: 'https://studentspace-api.onrender.com/api/bi/performance-enseignants' },
   ];
 
   constructor(private http: HttpClient) {}
